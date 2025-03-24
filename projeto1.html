@@ -1,0 +1,123 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=area-simple&code=DYUwLgBAJghmIQLwQNoCYAMBGAzAGgkywBYCiBWM7ANiqwHY6AOOgTisw6w7Q5wF0A3AChQkWGBhJUaJhgLEMxAHS0IOJtWWNCrSoSxZl--tRUsIxVvWXsI5VkfzqmTYwVYbVBHKdVDhYQB7AAcwAEsggDtpAG9hCAgwIKDgCJCALgh4xMSwACdwgHMikHysgHIYAA9wgGcKvATckKC68IjorIAzAFcogGNOmIAKMIBKbObciHzwXvyYlDCUDH4CCqwMAFIKgJmAX2aDpryO0Cyc3NBusEqBkCj4fMbppJBqu4gKgDVU3oAtggoAgBgALXoANykMAGgN6wBgsAgrXyEBgUSCEBGRGI6MIGDQOEmAFoIAAxGAAL0eyIAwjBFjAAF8AIykZIAKjAQmUggBDiBkgAKACEKsdTkkUsBWUFqpc3t0QHAFiBFTNEhIYAAtFIAjWaxIATwAgrU6gBJKIghXfTFREASo0nN6JOZ1ZJzS6uo11GCQkCmq0AmClH1vI6JX0Qarm-qGvLG3n3OAgIpBfLG14zOX9WBZgDiPJ6MGAdRAUq1cBgWQklYggWjUrNFsTSWT6u-0OAvSdVYgeZtjONxcyqHk33IOz2kua2r1QQNqDeVxmYE7lXCUXaIJzms9jK-8jdEFpWS2GEjA7XuUP-WPA8S54gW0jzXWzQrhRAdSyKFXU8ohgIFKj-XsgWgBB-SKXoYH3ddN2-YBt37U86mNAE5WASoHTQv0QJCFCoiKSo0jAVkENyDoQABABlDcLimI1EgGVJM0qfIilZHFyBMSdcCwcZnU1GMZkZFUGONJjbxmNjgA4iBHQAdzPcEjzqZQinyHkwXCAZlAAGVQxlCx0qBwkeMARknWyCG4FcWNyWSWKCbpugrR9TyNeTFIqLieLQPj7PICxqCYYTvNyMSWJco03I88ALyfFjfPKb4At4_j7JwISRKcqMWP4cZTxi6tJDrGt30SfhhAOQQgA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let date = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+let data = [280, 404.6, 386.7, 295, 211.5, 764.8, 497.9, 591.3, 388.5, 938.6, 376.6];
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    position: function (pt) {
+      return [pt[0], '10%'];
+    }
+  },
+  title: {
+    left: 'center',
+    text: 'Volume de chuva acumulada por ano (2014 a 2023) - Fazenda Carnaúba - Taperoá - PB'
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: date, 
+
+  },
+  yAxis: {
+    type: 'value',
+    boundaryGap: [0, '50%']
+  },
+  dataZoom: [
+    {
+      type: 'inside',
+      start: 0,
+      end: 100
+    },
+    {
+      start: 0,
+      end: 10
+    }
+  ],
+  series: [
+    {
+      name: 'Volume de água',
+      type: 'line',
+      symbol: 'none',
+      sampling: 'lttb',
+      itemStyle: {
+        color: 'rgb(255, 70, 131)'
+      },
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(255, 158, 68)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(255, 70, 131)'
+          }
+        ])
+      },
+      data: data
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
