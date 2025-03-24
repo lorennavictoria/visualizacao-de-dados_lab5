@@ -1,0 +1,273 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=mix-zoom-on-value&code=DYUwLgBAJghmIQLwQNoCYAMBGALAGgkywFYCiA2M7AdiqwA46BOKzVrVtVgZgF0BuAFChIsMDCSosaHADpKEALRZqslkqZZZtJfW6zSEYsX3cCitOXJqCTffiWY0sxkeIZZHJcXLOMvQUEAewAHMABLIIA7SQBvQQgIMCCg4AiQgC4IeMTEsAAncIBzIpB8rIByGAAPcIBnCrwE3Jr6gAUg8Kj4cuzm3KSATxCQSrqACxgoIIB3Rv7c4BgAIxBgLJyB3InZrIKAVxAFxIBfBbPTgghmiLBQDYXQADMwSoBjEG6y-YH4ateIBUAGowQowADnAGOgtAJG9xvsAG4SGBvfYAW32S1gEBCQXyEBgURhAAoiDhCYQMGhuABKJQQABiMAAXp8cQBhUFRGAAL-WEkUEAAKjARvkggBDhltABCFWaJyaeRSwGWQWqDwGOxme3yh2VuSeIDg-3yoz6Wwg6NBAGsNhAdXrDhAlcdYeIgeEQLrso7xrskvqQARzVMAPJRYCDLJPGDAOoIN1Wm1FcJvYXDC2xf2Bg4hoYjLIoCrALogRqAgX5Cq8V2GgbmurJc0Op1Bl3JrZ1GCIkAAQTqAElU9nc77867zorDW942ilst7h2Q81QKUolAtbkxDBi8DQeEIdDoAhEakMRWCBVZfsoKVIEQsJWb3eH1TpLWGxBwvB0QBxMUsmIGdmiKQot0tXJkkyQFpAAUh-RYQBeSosEQ79CiKcYAQqLAMAwhY3micQugAGRWNZnSOS5mmqftajqYsFk2X4s3eOAQCKfFBiQgZdyyMRVwGC4IF4Q1BgY-pmIGVjoPYwFkWAQ4-NyHl0QtYELw0iASXRdFaVU0TxOaXcAC0UnRGTcjkxJ23zb87PEfIAQwRyIHZLJ8Iwc5v1swtNK6OpwigK93WbUFXPczyIG83yWPCgMJ2DdzJMYodNxATUIDc90nnCNIygAWSCULKhAdEwl49yZhCsBxiybhcqtcYQGKHDKnoAjVLspKABE4BgABlSZpl9OME2ErZnlwuxEOnRITLsspvSY1AEqtMAFIqaseo9Pd9tkG0QhJJSXUQAA-XT_LOi1bvc38KqGrbl38xJiOAfEsluiALuQDAIAAfkBABiYgcGoDAOXICoIEqEGAFEEasKxYfdUTTlpWkFrEwQTn4IA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0"><!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=mix-zoom-on-value&code=DYUwLgBAJghmIQLwQNoCYAMBGALAGgkywFYCiA2M7AdiqwA46BOKzVrVtVgZgF0BuAFChIsMDCSosaHADpKEALRZqslkqZZZtJfW6zSEYsX3cCitOXJqCTffiWY0sxkeIZZHJcXLOMvQUEAewAHMABLIIA7SQBvQQgIMCCg4AiQgC4IeMTEsAAncIBzIpB8rIByGAAPcIBnCrwE3Jr6gAUg8Kj4cuzm3KSATxCQSrqACxgoIIB3Rv7c4BgAIxBgLJyB3InZrIKAVxAFxIBfBbPTgghmiLBQDYXQADMwSoBjEG6y-YH4ateIBUAGowQowADnAGOgtAJG9xvsAG4SGBvfYAW32S1gEBCQXyEBgURhAAoiDhCYQMGhuABKJQQABiMAAXp8cQBhUFRGAAL-WEkUEAAKjARvkggBDhltABCFWaJyaeRSwGWQWqDwGOxme3yh2VuSeIDg-3yoz6Wwg6NBAGsNhAdXrDhAlcdYeIgeEQLrso7xrskvqQARzVMAPJRYCDLJPGDAOoIN1Wm1FcJvYXDC2xf2Bg4hoYjLIoCrALogRqAgX5Cq8V2GgbmurJc0Op1Bl3JrZ1GCIkAAQTqAElU9nc77867zorDW942ilst7h2Q81QKUolAtbkxDBi8DQeEIdDoAhEakMRWCBVZfsoKVIEQsJWb3eH1TpLWGxBwvB0QBxMUsmIGdmiKQot0tXJkkyQFpAAUh-RYQBeSosEQ79CiKcYAQqLAMAwhY3micQugAGRWNZnSOS5mmqftajqYsFk2X4s3eOAQCKfFBiQgZdyyMRVwGC4IF4Q1BgY-pmIGVjoPYwFkWAQ4-NyHl0QtYELw0iASXRdFaVU0TxOaXcAC0UnRGTcjkxJ23zb87PEfIAQwRyIHZLJ8Iwc5v1swtNK6OpwigK93WbUFXPczyIG83yWPCgMJ2DdzJMYodNxATUIDc90nnCNIygAWSCULKhAdEwl49yZhCsBxiybhcqtcYQGKHDKnoAjVLspKABE4BgABlSZpl9OME2ErZnlwuxEOnRITLsspvSY1AEqtMAFIqaseo9Pd9tkG0QhJJSXUQAA-XT_LOi1bvc38KqGrbl38xJiOAfEsluiALuQDAIAAfkBABiYgcGoDAOXICoIEqEGAFEEasKxYfdUTTlpWkFrEwQTn4IA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let date = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+let data = [124.6, -17.9, -91.7, -83.5, 553.3, -266.9, 93.4, -202.8, 550.1, -562.0]
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow',
+      label: {
+        show: true
+      }
+    }
+  },  
+  title: {
+    left: 'center',
+    text: 'Variação da chuva acumulada por ano (2014 a 2023) - Fazenda Carnaúba - Taperoá - PB'
+  },
+  toolbox: {
+    show: true,
+    feature: {
+      mark: { show: true },
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  calculable: true,
+  legend: {
+    data: ['Variação de volume', 'Budget 2011', 'Budget 2012'],
+    itemGap: 5
+  },
+  grid: {
+    top: '12%',
+    left: '1%',
+    right: '10%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: date,
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: 'Volume (mm)',
+    }
+  ],
+  dataZoom: [
+    {
+      show: true,
+      start: 0,
+      end: 100
+    },
+    {
+      type: 'inside',
+      start: 0,
+      end: 100
+    },
+    {
+      show: true,
+      yAxisIndex: 0,
+      filterMode: 'empty',
+      width: 30,
+      height: '80%',
+      showDataShadow: false,
+      left: '93%'
+    }
+  ],
+  series: [
+    {
+      type: 'bar',
+      data: data.map(value => ({
+      value: value,
+      itemStyle: {
+        color: value >= 0 ? '#5470C6' : '#EE6666' 
+      }
+    }))
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    let date = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+let data = [124.6, -17.9, -91.7, -83.5, 553.3, -266.9, 93.4, -202.8, 550.1, -562.0]
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow',
+      label: {
+        show: true
+      }
+    }
+  },  
+  title: {
+    left: 'center',
+    text: 'Variação da chuva acumulada por ano (2014 a 2023) - Fazenda Carnaúba - Taperoá - PB'
+  },
+  toolbox: {
+    show: true,
+    feature: {
+      mark: { show: true },
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  calculable: true,
+  legend: {
+    data: ['Variação de volume', 'Budget 2011', 'Budget 2012'],
+    itemGap: 5
+  },
+  grid: {
+    top: '12%',
+    left: '1%',
+    right: '10%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: date,
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: 'Volume (mm)',
+    }
+  ],
+  dataZoom: [
+    {
+      show: true,
+      start: 0,
+      end: 100
+    },
+    {
+      type: 'inside',
+      start: 0,
+      end: 100
+    },
+    {
+      show: true,
+      yAxisIndex: 0,
+      filterMode: 'empty',
+      width: 30,
+      height: '80%',
+      showDataShadow: false,
+      left: '93%'
+    }
+  ],
+  series: [
+    {
+      type: 'bar',
+      data: data.map(value => ({
+      value: value,
+      itemStyle: {
+        color: value >= 0 ? '#5470C6' : '#EE6666' 
+      }
+    }))
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
